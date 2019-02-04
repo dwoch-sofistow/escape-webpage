@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'episodes.apps.EpisodesConfig',
     'blogs.apps.BlogsConfig',
     'resources.apps.ResourcesConfig',
+    'weird.apps.WeirdConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

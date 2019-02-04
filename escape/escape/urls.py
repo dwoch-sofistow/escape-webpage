@@ -17,14 +17,13 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
-import blogs.views
-#import episodes.views
-#import resources.views
+import weird.views
 
 urlpatterns = [
     path('happytreefriends/', admin.site.urls), #Bot deterrent ;)
-    path('', blogs.views.home, name='home'),
-    path('about/', blogs.views.about, name='about'),
+    path('', weird.views.home, name='home'),
+    path('about/', weird.views.about, name='about'),
+#    path('weird/', include('weird.urls')),
     path('blog/', include('blogs.urls')),
     path('episode/', include('episodes.urls')),
     path('hiddenep/', include('episodes.urls')),
