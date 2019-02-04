@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>O ESCAPE TV</title>
+    <title>{{ blog.title }}</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -29,7 +29,7 @@
               <a class="nav-link" href="{% url 'home' %}">Aktualności</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'blogs' %}">Blog</a>
+              <a class="nav-link active" href="{% url 'blogs' %}">Blog</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'episodes' %}">Odcinki</a>
@@ -38,7 +38,7 @@
               <a class="nav-link" href="{% url 'resources' %}">Zasoby</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="{% url 'about' %}">O nas</a>
+              <a class="nav-link" href="{% url 'about' %}">O nas</a>
             </li>
           </ul>
         </div>
@@ -47,44 +47,30 @@
 
     <main role="main">
       <div class="container">
-        <h1 class="text-center pt-3">O Nas</h1>
-        <p><i> "Escape TV to satyryczno-ekonomiczny kanał informacyjny na miarę XXI wieku.
-            Jeśli ktoś da nam pokrzepienie w tych ciężkich czasach, to tylko Escape TV!" </i></p>
-            <blockquote>Ktoś kto jest znany z tego, że jest znany w wypowiedzi o Escape TV</blockquote><br><br>
-        <p><i> "To sprytne połączenie poradnictwa w domu i zagrodzie z solidną dawką czarnego humoru" </i></p>
-            <blockquote>Autor: Abradolf Lincler o Escape TV</blockquote><br><br>
-        <p><i> "To narzędzie SZATANA! A zwłaszcza ta ich gadająca lampa! Wiedzcie, że coś się  u nich dzieje!" </i></p>
-            <blockquote>Ksiądz Natanek o Escape TV. Lampa pozdrawia serdecznie!</blockquote><br><br>
-        <p><i> "Te lewagi, komuchy nie majo za grosz RiGCZu! Tylko wyzysk, zapieprz i miska ryżu!
-                Niech żyje nam Januszystan europy! Tylko wolny rynek dla korporacji!
-                Poczytaj-Rothbarda-obejrzyj-Korwina hurr durr!" </i></p>
-            <blockquote>Typowy akap o Escape TV</blockquote><br><br>
+        <h1 class="text-center pt-3">{{ blog.title }}</h1>
+        <h4 class="pt-2">{{ blog.pubdate_short }}</h4>
+        <hr />
+        {% if blog.video != None %}
+            <br />
+            {% with blog as b %}
+            <iframe width="560" height="315" src="{{ b.video }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            {% endwith %}
+        {% else %}
+            <br/>
+            {% with blog as b %}
+            <img class="img-fluid" src="{{ b.image.url }}" width=50% height=auto />
+            {% endwith %}
+        {% endif %}
+        <br />
+        <br />
+        {{ blog.body|linebreaksbr }}
       </div>
-
-      <div class="container marketing">
-        <h1 class="text-center pt-3">Odcinki nieznane nauce</h1>
-        <h2 class="pt-2">Najnowsze Wpisy</h2>
-        {% for episode in episodes.all %}
-          <hr class="featurette-divider">
-           <div class="row featurette">
-             <div class="col-md-7">
-              <h2 class="featurette-heading">{{ episode.title }}</h2> <h5 class="text-muted">{{ episode.pubdate_short }}</h5>
-               <p class="lead">{{ episode.summary }}</p>
-             </div>
-             <div class="col-md-5">
-              <img class="featurette-image" src="{{ episode.image.url }}" height="120px" />
-             </div>
-           </div>
-        {% endfor %}
-      </div>
-
     </main>
     <br/>
     <footer class="text-muted">
       <div class="container text-center">
         <p> &copy; Dwóch Sofistów Studio {% now "Y" %}</p>
       </div>
-
     </footer>
 
     <!-- Bootstrap core JavaScript

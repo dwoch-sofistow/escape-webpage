@@ -23,10 +23,9 @@ urlpatterns = [
     path('happytreefriends/', admin.site.urls), #Bot deterrent ;)
     path('', weird.views.home, name='home'),
     path('about/', weird.views.about, name='about'),
-#    path('weird/', include('weird.urls')),
-    path('blog/', include('blogs.urls')),
-    path('episode/', include('episodes.urls')),
-    path('hiddenep/', include('episodes.urls')),
-    path('resource/', include('resources.urls')),
-    path('hiddenres/', include('resources.urls')),
+#   path('weird/', include('weird.urls')),
+    path('blogs/', include('blogs.urls')),
+    path('episodes/', include('episodes.urls')),
+    path('resources/', include('resources.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
