@@ -14,12 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 import blogs.views
+#import episodes.views
+#import resources.views
 
 urlpatterns = [
     path('happytreefriends/', admin.site.urls), #Bot deterrent ;)
     path('', blogs.views.home, name='home'),
+    path('about/', blogs.views.about, name='about'),
+    path('blog/', include('blogs.urls')),
+    path('episode/', include('episodes.urls')),
+    path('hiddenep/', include('episodes.urls')),
+    path('resource/', include('resources.urls')),
+    path('hiddenres/', include('resources.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
