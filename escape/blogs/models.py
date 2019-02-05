@@ -7,6 +7,13 @@ class Blog(models.Model):
     body = models.TextField()
     image = models.ImageField(upload_to='images', blank=True, null=True)
     video = models.CharField(max_length=500, blank=True, null=True)
+    skin1 = models.ImageField(upload_to='images', blank=True, null=True)
+    skin2 = models.ImageField(upload_to='images', blank=True, null=True)
+    link = models.TextField(blank=True, null=True)
+    censorlink = models.TextField(blank=True, null=True) #Tu wpisz HiddenEpisode_ID - zwykły integer
+    # Można by dodać jeszcze ze dwa pola na linki (1 normalny i 1 cenzurowany)
+    # Można tu dodać pole na skina (albo 2 jeśli chcemy tu coś ukrywać.)
+
 
     #Ta funkcja pokazuje tytuł postu na stronie admina. Zawsze używaj ___str___ żeby wrzucić coś w górę do adminów.
     def __str__(self):

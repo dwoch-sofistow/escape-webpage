@@ -7,6 +7,7 @@ class Resource(models.Model):
     body = models.TextField()
     image = models.ImageField(upload_to='images', blank=True, null=True)
     video = models.CharField(max_length=500, blank=True, null=True)
+    file = models.TextField(blank=True, null=True)
 
     #Ta funkcja pokazuje tytuł postu na stronie admina. Zawsze używaj ___str___ żeby wrzucić coś w górę do adminów.
     def __str__(self):
@@ -26,6 +27,8 @@ class HiddenResource(models.Model):
     body = models.TextField()
     image = models.ImageField(upload_to='images', blank=True, null=True)
     video = models.CharField(max_length=500, blank=True, null=True)
+    file = models.TextField(blank=True, null=True)
+
 
     #Ta funkcja pokazuje tytuł postu na stronie admina. Zawsze używaj ___str___ żeby wrzucić coś w górę do adminów.
     def __str__(self):

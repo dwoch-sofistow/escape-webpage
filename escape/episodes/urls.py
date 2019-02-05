@@ -5,5 +5,6 @@ from . import views
 urlpatterns = [
     path(' ', views.episodemenu, name='episodes'),
     path('<int:episode_id>/', views.detailep, name='detailep'),
-    path('<int:hiddenepisode_id>/', views.hiddenepisode, name='hiddenep'),
+    path('hiddenresource <int:hiddenresource_id>/', views.hiddenresource, name='hiddenresource'),
+
 ]

@@ -64,6 +64,14 @@
         <br />
         <br />
         {{ blog.body|linebreaksbr }}
+        <br />
+        <br />
+        {{ blog.link }}
+        <br />
+        <br />
+        <span class="censored">
+        <a href="{% url 'hiddenepisode' blog.censorlink %}">Epizod Ukryty</a>
+        </span>
       </div>
     </main>
     <br/>

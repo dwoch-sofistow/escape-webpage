@@ -1,19 +1,27 @@
 from django.shortcuts import render, get_object_or_404
 
 from episodes.models import Episode, HiddenEpisode
+from resources.models import HiddenResource
 
 # Create your views here.
-#Wszystkie epizody w skrócie
+# Lista wszystkich odcinków
 def episodemenu(request):
     episodes = Episode.objects
     return render(request, 'episodes.html', {'episodes':episodes})
 
-#Ta funkcja kieruje na podstronę wybranego epizodu
+# Podstrona odcinka wybranego z listy
 def detailep(request, episode_id):
     detailepisode = get_object_or_404(Episode, pk=episode_id)
     return render(request, 'episode.html', {'episode':detailepisode})
 
 #Strona o nas
-def hiddenepisode(request, hiddenepisode_id):
-    hidden_ep = get_object_or_404(HiddenEpisode, pk=hiddenepisode_id)
-    return render(request, 'special/hidden.html', {'hidden':hidden_ep})
+def hiddenresource(request, hideenresource_id):
+    hidden_res = get_object_or_404(hiddenresource, pk=hiddenresource_id)
+    return render(request, 'special/hiddenres.html', {'hidden':hidden_res})
+
+
+# Schemat dla apki "Episodes"
+#    home   =>  episodemenu, detailp #-1 i -2 (wip)
+#    navbar =>  episodemenu
+#    episodemenu => detailp
+#
