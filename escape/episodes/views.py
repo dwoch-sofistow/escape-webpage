@@ -15,13 +15,13 @@ def detailep(request, episode_id):
     return render(request, 'episode.html', {'episode':detailepisode})
 
 #Strona o nas
-def hiddenresource(request, hideenresource_id):
-    hidden_res = get_object_or_404(hiddenresource, pk=hiddenresource_id)
-    return render(request, 'special/hiddenres.html', {'hidden':hidden_res})
+def hiddenresource(request, hiddenresource_id):
+    hidden_res = get_object_or_404(HiddenResource, pk=hiddenresource_id)
+    return render(request, 'special/hiddenres.html', {'hiddenre':hidden_res})
 
 
 # Schemat dla apki "Episodes"
-#    home   =>  episodemenu, detailp #-1 i -2 (wip)
+#    home   =>  episodemenu, detailp #-1 i? -2 (wip)
 #    navbar =>  episodemenu
 #    episodemenu => detailp
 #

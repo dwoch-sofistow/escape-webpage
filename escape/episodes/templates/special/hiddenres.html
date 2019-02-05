@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>{{ hidden.title }}</title>
+    <title>{{ hiddenre.title }}</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -47,29 +47,29 @@
 
     <main role="main">
       <div class="container">
-        <h1 class="text-center pt-3">{{ hidden.title }}</h1>
-        <h4 class="pt-2">{{ hidden.pubdate_short }}</h4>
+        <h1 class="text-center pt-3">{{ hiddenre.title }}</h1>
+        <h4 class="pt-2">{{ hiddenre.pubdate_short }}</h4>
         <hr />
-        {% if hidden.video != None %}
+        {% if hiddenre.video != None %}
             <br />
-            {% with hidden as h %}
+            {% with hiddenre as h %}
             <iframe width="560" height="315" src="{{ h.video }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             {% endwith %}
         {% else %}
             <br/>
         {% endif %}
-        {% if hidden.image != None %}
-            {% with hidden as h %}
+        {% if hiddenre.image != None %}
+            {% with hiddenre as h %}
             <img class="img-fluid" src="{{ h.image.url }}" width=50% height=auto />
             {% endwith %}
         {% else %}
             <br/>
         {% endif %}
             <br />
-        {{ hidden.body|linebreaksbr }}
+        {{ hiddenre.body|linebreaksbr }}
         <br />
         <br />
-        {{ hidden.file }}
+        {{ hiddenre.file }}
 
       </div>
     </main>

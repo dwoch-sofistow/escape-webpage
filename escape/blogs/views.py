@@ -19,9 +19,6 @@ def blogdetail(request, blog_id):
 #Ukryte epizody
 def hiddenepisode(request, hiddenepisode_id):
     hidden_ep = get_object_or_404(HiddenEpisode, pk=hiddenepisode_id)
+    hiddenresource_id = hidden_ep.resource1
     hidden_re = get_object_or_404(HiddenResource, pk=hiddenresource_id)
-    return render(request, 'special/hiddeneps.html', {'hidden':hidden_ep, 'resource':hidden_re})
-
-#def hiddenres(request, hiddenresource_id):
-#    hidden_re = get_object_or_404(HiddenResource, pk=hiddenresource_id)
-#    return render(request, 'special/hiddeneps.html', {'resource':hidden_re})
+    return render(request, 'special/hiddeneps.html', {'hiddenep':hidden_ep, 'resource':hidden_re})

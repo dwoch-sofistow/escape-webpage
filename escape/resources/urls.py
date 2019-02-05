@@ -6,3 +6,6 @@ urlpatterns = [
     path(' ', views.resourcemenu, name='resources'),
     path('<int:Resource_id>/', views.detailres, name='detailres'),
 ]
+# Schemat przejść:
+#   home, navbar => resourcemenu
+#   resourcemenu => detailres

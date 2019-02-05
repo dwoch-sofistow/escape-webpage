@@ -8,3 +8,8 @@ urlpatterns = [
     path('hiddenresource <int:hiddenresource_id>/', views.hiddenresource, name='hiddenresource'),
 
 ]
+
+# Schemat przejść:
+#   home, navbar => episodemenu
+#   episodemenu => detailep
+#   detailep => hiddenresource
